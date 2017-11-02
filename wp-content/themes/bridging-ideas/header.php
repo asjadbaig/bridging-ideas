@@ -44,12 +44,27 @@
 
 		<nav id="site-navigation" class="main-navigation">
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'bridging-ideas' ); ?></button>
-			<?php
-				wp_nav_menu( array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				) );
-			?>
+			<?php 
+$defaults = array( 
+	'menu' => '', 
+	'container' => 'div',
+	'container_class' => '',
+	'container_id' => '',
+	'menu_class' => 'menu nav',
+	'menu_id' => '',
+	'echo' => true,
+	'fallback_cb' => 'wp_page_menu',
+	'before' => '',
+	'after' => '',
+	'link_before' => '',
+	'link_after' => '',
+	'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+	'item_spacing' => 'preserve',
+	'depth' => 0, 'walker' => '', 
+	'theme_location' => '' );
+
+wp_nav_menu( $defaults);
+?>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 

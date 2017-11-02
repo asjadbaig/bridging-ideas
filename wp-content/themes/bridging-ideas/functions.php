@@ -159,3 +159,9 @@ function add_menuclass($ulclass) {
   return preg_replace('/<a /', '<a class="nav-link"', $ulclass);
 }
 add_filter('wp_nav_menu','add_menuclass');
+function reg_scripts() {
+	wp_enqueue_script( 'bootstrap-js', '//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js', array('jquery'), NULL, true );
+	wp_enqueue_style( 'bootsrap-css', '//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css', false, NULL, 'all' );
+}
+
+add_action('wp_enqueue_scripts', 'reg_scripts');
